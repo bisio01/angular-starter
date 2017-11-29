@@ -1,3 +1,22 @@
-h1 {
-  color: #00BCD4;
+* {
+  box-sizing: border-box;
+}
+
+.nav {
+  margin-bottom: 30px;
+}
+
+.list-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.list-item {
+  width: 30%;
+  border: 2px solid #00838F;
+  background: #4fe4d4;
+  padding: 15px 20px;
+  margin-bottom: 20px;
+  color: #fff;
 }

@@ -1,13 +1,18 @@
-import { Routes } from '@angular/router';
-import { HomeComponent } from './home';
-import { AboutComponent } from './about';
+import { RouterModule, Routes } from '@angular/router';
 import { NoContentComponent } from './no-content';
+import { SearchComponent } from './search/search.component';
+import { CategoryRoutes } from './category/category.routes';
 
-export const ROUTES: Routes = [
-  { path: '',      component: HomeComponent },
-  { path: 'home',  component: HomeComponent },
-  { path: 'about', component: AboutComponent },
-  { path: 'detail', loadChildren: './+detail#DetailModule'},
-  { path: 'barrel', loadChildren: './+barrel#BarrelModule'},
-  { path: '**',    component: NoContentComponent },
+export const ROUTES: RouterModule = [
+/*  {
+    path: '',
+    component:
+
+  }*/
+  ...CategoryRoutes,
+  {
+    path: 'search',
+    component: SearchComponent
+  },
+  {path: '**', component: NoContentComponent}
 ];
