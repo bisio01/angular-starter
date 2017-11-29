@@ -11,8 +11,8 @@ export class CategoryService {
 
   }
 
-  public getList() {
-    return this.http.get(`${this.domain}?api-key=${this.apiKey}`)
+  public getList(params: {page: number}) {
+    return this.http.get(`${this.domain}?api-key=${this.apiKey}&page=${params.page}`)
       .map((res) => {
         return res.json();
       });

@@ -5,4 +5,12 @@
     <h3> {{list.webTitle}}</h3>
     <a href="{{list.webUrl}}">More...</a>
   </div>
+  <pagination
+    (goPage)="goToPage($event)"
+    (goNext)="onNext()"
+    (goPrev)="onPrev()"
+    [pagesToShow]="5"
+    [page]="page"
+    [perPage]="limit"
+    [count]="total"></pagination>
 </div>

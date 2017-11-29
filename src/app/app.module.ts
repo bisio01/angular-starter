@@ -15,6 +15,7 @@ import { SearchComponent } from './search/search.component';
 import { CategoryListComponent } from './category/category-list/category-list.component';
 import { CategoryViewComponent } from './category/category-view/category-view.component';
 import { CategoryService } from './category/category.service';
+import { PaginationComponent } from './component/pagination/pagination.component';
 
 // Application wide providers
 const APP_PROVIDERS = [
@@ -36,6 +37,7 @@ type StoreType = {
     CategoryViewComponent,
     SearchComponent,
     NoContentComponent,
+    PaginationComponent
   ],
   imports: [
     BrowserModule,
