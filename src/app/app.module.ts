@@ -16,6 +16,9 @@ import { CategoryListComponent } from './category/category-list/category-list.co
 import { CategoryViewComponent } from './category/category-view/category-view.component';
 import { CategoryService } from './category/category.service';
 import { PaginationComponent } from './component/pagination/pagination.component';
+import { MainComponent } from './main/main.component';
+import { MainService } from './main/main.service';
+import { TopListComponent } from './component/top-list/top-list.component';
 
 // Application wide providers
 const APP_PROVIDERS = [
@@ -37,7 +40,9 @@ type StoreType = {
     CategoryViewComponent,
     SearchComponent,
     NoContentComponent,
-    PaginationComponent
+    PaginationComponent,
+    TopListComponent,
+    MainComponent
   ],
   imports: [
     BrowserModule,
@@ -48,7 +53,8 @@ type StoreType = {
   ],
   providers: [
     APP_PROVIDERS,
-    CategoryService
+    CategoryService,
+    MainService
   ],
   bootstrap: [
     AppComponent

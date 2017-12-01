@@ -9,27 +9,21 @@ import { AppState } from './app.service';
   ],
   template: `
     <nav class="nav">
+      <a [routerLink]=" ['/']" 
+         routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Main</a>
       <a [routerLink]=" ['/category/list'] "
-        routerLinkActive="active" [routerLinkActiveOptions]= "{exact: true}">
-        Main
-      </a>
+         routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Category</a>
       <a [routerLink]=" ['/search'] "
-         routerLinkActive="active" [routerLinkActiveOptions]= "{exact: true}">
-        Search
-      </a>
+         routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Search</a>
     </nav>
-
-    <main>
-      <router-outlet></router-outlet>
-    </main>
+    <router-outlet></router-outlet>
   `
 })
 export class AppComponent implements OnInit {
   public name = 'Angular Starter';
 
-  constructor(
-    public appState: AppState
-  ) {}
+  constructor(public appState: AppState) {
+  }
 
   public ngOnInit() {
     console.log('Initial App State', this.appState.state);

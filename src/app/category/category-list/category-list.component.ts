@@ -14,10 +14,10 @@ export class CategoryListComponent implements OnInit {
   public limit = 5;
 
   constructor(public categoryService: CategoryService) {
-    this.loadCity();
+    this.loadList();
   }
 
-  public loadCity() {
+  public loadList() {
     this.loading = true;
     this.categoryService.getList({page: this.page}).subscribe((res) => {
       this.result = res.response;
@@ -28,17 +28,17 @@ export class CategoryListComponent implements OnInit {
 
   public goToPage(n: number): void {
     this.page = n;
-    this.loadCity();
+    this.loadList();
   }
 
   public onNext(): void {
     this.page++;
-    this.loadCity();
+    this.loadList();
   }
 
   public onPrev(): void {
     this.page--;
-    this.loadCity();
+    this.loadList();
   }
 
   public ngOnInit() {
