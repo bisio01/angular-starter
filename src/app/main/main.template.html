@@ -1,6 +1,6 @@
 <div class="list-wrapper">
   <div class="list" *ngFor="let categoryList of category">
-    {{categoryList.categoryValue}}
-    <top-list [category]="limits"></top-list>
+    <h2>{{categoryList.categoryValue}}</h2>
+    <top-list [category]="categoryList.categoryValue"></top-list>
   </div>
 </div>

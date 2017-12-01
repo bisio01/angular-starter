@@ -13,12 +13,13 @@ import '../styles/styles.scss';
 import '../styles/headings.css';
 import { SearchComponent } from './search/search.component';
 import { CategoryListComponent } from './category/category-list/category-list.component';
-import { CategoryViewComponent } from './category/category-view/category-view.component';
 import { CategoryService } from './category/category.service';
 import { PaginationComponent } from './component/pagination/pagination.component';
 import { MainComponent } from './main/main.component';
 import { MainService } from './main/main.service';
 import { TopListComponent } from './component/top-list/top-list.component';
+import { PostViewComponent } from './post-view/post-view.component';
+import { PostViewService } from './post-view/post-view.service';
 
 // Application wide providers
 const APP_PROVIDERS = [
@@ -37,12 +38,13 @@ type StoreType = {
   declarations: [
     AppComponent,
     CategoryListComponent,
-    CategoryViewComponent,
     SearchComponent,
     NoContentComponent,
     PaginationComponent,
     TopListComponent,
-    MainComponent
+    MainComponent,
+    PostViewComponent
+
   ],
   imports: [
     BrowserModule,
@@ -54,7 +56,8 @@ type StoreType = {
   providers: [
     APP_PROVIDERS,
     CategoryService,
-    MainService
+    MainService,
+    PostViewService
   ],
   bootstrap: [
     AppComponent

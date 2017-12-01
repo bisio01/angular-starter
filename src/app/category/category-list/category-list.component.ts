@@ -22,6 +22,7 @@ export class CategoryListComponent implements OnInit {
     this.categoryService.getList({page: this.page}).subscribe((res) => {
       this.result = res.response;
       this.total = this.result.pages;
+      console.log(this.result);
     });
     this.loading = false;
   }

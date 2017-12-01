@@ -6,7 +6,8 @@
   margin-bottom: 30px;
 }
 
-.list-wrapper {
+.list-wrapper,
+.item-wrapper {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
@@ -19,4 +20,10 @@
   padding: 15px 20px;
   margin-bottom: 20px;
   color: #fff;
+}
+
+
+.item {
+  width: 30%;
+  margin-bottom: 20px;
 }
