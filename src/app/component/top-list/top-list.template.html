@@ -1,5 +1,6 @@
 <div class="item-wrapper">
-  <div class="item" *ngFor="let item of resultItems">
-    <h4>{{item.webTitle}}</h4>
+  <div class="item" *ngFor="let post of resultItems">
+    <h4>{{post.webTitle}}</h4>
+    <button type="button" [routerLink]="['/', 'post-view', post.id]">link</button>
   </div>
 </div>
