@@ -1,0 +1,16 @@
+<div class="list-wrapper">
+  <div class="list-item" *ngFor="let list of result.results">
+    <span>{{list.sectionName}}</span>
+    <span>{{list.pillarName}}</span>
+    <h3> {{list.webTitle}}</h3>
+    <a href="{{list.webUrl}}">More...</a>
+  </div>
+  <pagination
+    (goPage)="goToPage($event)"
+    (goNext)="onNext()"
+    (goPrev)="onPrev()"
+    [pagesToShow]="5"
+    [page]="page"
+    [perPage]="limit"
+    [count]="total"></pagination>
+</div>

@@ -4,24 +4,21 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { RouterModule, PreloadAllModules } from '@angular/router';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
-/*
- * Platform and Environment providers/directives/pipes
- */
-import { environment } from 'environments/environment';
 import { ROUTES } from './app.routes';
-// App is our top level component
 import { AppComponent } from './app.component';
 import { APP_RESOLVER_PROVIDERS } from './app.resolver';
 import { AppState, InternalStateType } from './app.service';
-import { HomeComponent } from './home';
-import { AboutComponent } from './about';
 import { NoContentComponent } from './no-content';
-import { XLargeDirective } from './home/x-large';
-import { DevModuleModule } from './+dev-module';
-
 import '../styles/styles.scss';
 import '../styles/headings.css';
+import { SearchComponent } from './search/search.component';
+import { CategoryListComponent } from './category/category-list/category-list.component';
+import { CategoryViewComponent } from './category/category-view/category-view.component';
+import { CategoryService } from './category/category.service';
+import { PaginationComponent } from './component/pagination/pagination.component';
+import { MainComponent } from './main/main.component';
+import { MainService } from './main/main.service';
+import { TopListComponent } from './component/top-list/top-list.component';
 
 // Application wide providers
 const APP_PROVIDERS = [
@@ -35,44 +32,32 @@ type StoreType = {
   disposeOldHosts: () => void
 };
 
-/**
- * `AppModule` is the main entry point into Angular2's bootstraping process
- */
 @NgModule({
-  bootstrap: [ AppComponent ],
+
   declarations: [
     AppComponent,
-    AboutComponent,
-    HomeComponent,
+    CategoryListComponent,
+    CategoryViewComponent,
+    SearchComponent,
     NoContentComponent,
-    XLargeDirective
+    PaginationComponent,
+    TopListComponent,
+    MainComponent
   ],
-  /**
-   * Import Angular's modules.
-   */
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     FormsModule,
     HttpModule,
-    RouterModule.forRoot(ROUTES, {
-      useHash: Boolean(history.pushState) === false,
-      preloadingStrategy: PreloadAllModules
-    }),
-
-    /**
-     * This section will import the `DevModuleModule` only in certain build types.
-     * When the module is not imported it will get tree shaked.
-     * This is a simple example, a big app should probably implement some logic
-     */
-    ...environment.showDevModule ? [ DevModuleModule ] : [],
+    RouterModule.forRoot(<any> ROUTES),
   ],
-  /**
-   * Expose our Services and Providers into Angular's dependency injection.
-   */
   providers: [
-    environment.ENV_PROVIDERS,
-    APP_PROVIDERS
-  ]
+    APP_PROVIDERS,
+    CategoryService,
+    MainService
+  ],
+  bootstrap: [
+    AppComponent
+  ],
 })
 export class AppModule {}
