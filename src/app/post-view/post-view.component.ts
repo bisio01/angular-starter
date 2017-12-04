@@ -14,8 +14,14 @@ export class PostViewComponent {
     this._route.params.subscribe((params: any) => {
       this.postViewService.getSinglePost(params.id).subscribe((res) => {
         this.singlePost = res.response.content;
-        console.log(this.singlePost);
       });
+    });
+    this.resolverTest();
+  }
+
+  public resolverTest() {
+    this._route.data.subscribe((res) => {
+      console.log(res);
     });
   }
 }

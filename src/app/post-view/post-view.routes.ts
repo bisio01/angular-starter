@@ -1,5 +1,6 @@
 import { Routes } from '@angular/router';
 import { PostViewComponent } from './post-view.component';
+import { TestResolver } from './post-view.resolver';
 
 export const PostViewRoutes: Routes = [
   {
@@ -7,6 +8,10 @@ export const PostViewRoutes: Routes = [
     children: [
       {
         path: ':id',
+        canActivate: [TestResolver],
+        resolve: {
+          resolver: TestResolver
+        },
         component: <any> PostViewComponent
       }
     ]
