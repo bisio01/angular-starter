@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CategoryService } from '../category.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'category-list',
@@ -13,8 +14,10 @@ export class CategoryListComponent implements OnInit {
   public page = 1;
   public limit = 5;
 
-  constructor(public categoryService: CategoryService) {
+  constructor(public categoryService: CategoryService,
+              private _router: Router) {
     this.loadList();
+    this._router.navigate([{ outlets: { aside: null }}]);
   }
 
   public loadList() {

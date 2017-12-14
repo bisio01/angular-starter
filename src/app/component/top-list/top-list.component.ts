@@ -9,7 +9,6 @@ import { MainService } from '../../main/main.service';
 export class TopListComponent implements OnInit {
   @Input()
   public set category(categoryValue) {
-    console.log(categoryValue);
     this.loadList(categoryValue);
   }
 
@@ -24,15 +23,10 @@ export class TopListComponent implements OnInit {
     this.mainService.getList(category).subscribe((res) => {
       this.result = res.response;
       this.resultItems = res.response.results;
-
-      console.log(this.result);
-      console.log(this.resultItems);
     });
   }
 
   public ngOnInit() {
 
   }
-
-
 }

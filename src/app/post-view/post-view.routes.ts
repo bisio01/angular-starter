@@ -4,14 +4,10 @@ import { TestResolver } from './post-view.resolver';
 
 export const PostViewRoutes: Routes = [
   {
-    path: 'post-view',
+    path: 'view',
     children: [
       {
         path: ':id',
-        canActivate: [TestResolver],
-        resolve: {
-          resolver: TestResolver
-        },
         component: <any> PostViewComponent
       }
     ]

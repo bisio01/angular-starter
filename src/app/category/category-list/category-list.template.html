@@ -3,7 +3,7 @@
     <span>{{post.sectionName}}</span>
     <span>{{post.pillarName}}</span>
     <h3> {{post.webTitle}}</h3>
-    <button type="button" [routerLink]="['/', 'post-view', post.id]">More...</button>
+    <button type="button" [routerLink]="['/', 'view', post.id]">More...</button>
   </div>
   <pagination
     (goPage)="goToPage($event)"
