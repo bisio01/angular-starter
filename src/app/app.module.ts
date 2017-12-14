@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { RouterModule, PreloadAllModules } from '@angular/router';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -13,12 +13,15 @@ import '../styles/styles.scss';
 import '../styles/headings.css';
 import { SearchComponent } from './search/search.component';
 import { CategoryListComponent } from './category/category-list/category-list.component';
-import { CategoryViewComponent } from './category/category-view/category-view.component';
 import { CategoryService } from './category/category.service';
 import { PaginationComponent } from './component/pagination/pagination.component';
 import { MainComponent } from './main/main.component';
 import { MainService } from './main/main.service';
 import { TopListComponent } from './component/top-list/top-list.component';
+import { PostViewComponent } from './post-view/post-view.component';
+import { PostViewService } from './post-view/post-view.service';
+import { AdvancedSearchService } from './search/search.service';
+import { ContactFormComponent } from './component/contact-modal/contact-modal.component';
 
 // Application wide providers
 const APP_PROVIDERS = [
@@ -37,24 +40,28 @@ type StoreType = {
   declarations: [
     AppComponent,
     CategoryListComponent,
-    CategoryViewComponent,
     SearchComponent,
     NoContentComponent,
     PaginationComponent,
     TopListComponent,
-    MainComponent
+    MainComponent,
+    PostViewComponent,
+    ContactFormComponent
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
+    ReactiveFormsModule,
     FormsModule,
     HttpModule,
-    RouterModule.forRoot(<any> ROUTES),
+    RouterModule.forRoot(<any> ROUTES, {enableTracing: true}),
   ],
   providers: [
     APP_PROVIDERS,
     CategoryService,
-    MainService
+    MainService,
+    PostViewService,
+    AdvancedSearchService
   ],
   bootstrap: [
     AppComponent

@@ -9,14 +9,22 @@ import { AppState } from './app.service';
   ],
   template: `
     <nav class="nav">
-      <a [routerLink]=" ['/']" 
+      <a [routerLink]=" ['/']"
          routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Main</a>
-      <a [routerLink]=" ['/category/list'] "
-         routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Category</a>
-      <a [routerLink]=" ['/search'] "
-         routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Search</a>
+      <a [routerLink]=" ['/category/list', {outlets: {aside: null}}] "
+         routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" >Category</a>
+      <a [routerLink]=" ['/search', {outlets: {aside: null}}] "
+         routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Advansed search</a>
     </nav>
-    <router-outlet></router-outlet>
+    <div>
+      <router-outlet></router-outlet>
+    </div>
+    <div>
+      <router-outlet name="aside"></router-outlet>
+    </div>
+    <footer>
+      <a [routerLink]="[{outlets: {aside: ['contact']}}]">Contact</a>
+    </footer>
   `
 })
 export class AppComponent implements OnInit {

@@ -7,25 +7,26 @@ import { MainService } from '../../main/main.service';
 })
 
 export class TopListComponent implements OnInit {
+  @Input()
+  public set category(categoryValue) {
+    this.loadList(categoryValue);
+  }
 
-  @Input() public category;
-  @Output() public result;
+  public result;
+  public resultItems;
 
-  constructor(private mainService: MainService){
-    console.log(this.category);
+  constructor(private mainService: MainService) {
   }
 
   public loadList(category) {
-    console.log(category);
+
     this.mainService.getList(category).subscribe((res) => {
-      this.result = res;
-      console.log(this.result);
+      this.result = res.response;
+      this.resultItems = res.response.results;
     });
   }
 
   public ngOnInit() {
-    console.log(this.category);
+
   }
-
-
 }

@@ -1,9 +1,9 @@
 <div class="list-wrapper">
-  <div class="list-item" *ngFor="let list of result.results">
-    <span>{{list.sectionName}}</span>
-    <span>{{list.pillarName}}</span>
-    <h3> {{list.webTitle}}</h3>
-    <a href="{{list.webUrl}}">More...</a>
+  <div class="list-item" *ngFor="let post of result.results">
+    <span>{{post.sectionName}}</span>
+    <span>{{post.pillarName}}</span>
+    <h3> {{post.webTitle}}</h3>
+    <button type="button" [routerLink]="['/', 'view', post.id]">More...</button>
   </div>
   <pagination
     (goPage)="goToPage($event)"

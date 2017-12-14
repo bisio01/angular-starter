@@ -1,0 +1,7 @@
+<div class="post" [ngClass]="{active: isAside}">
+  <i class="close"  (click)="closeModal()">X</i>
+
+  <h2>{{singlePost?.sectionName}}</h2>
+  <h1>{{singlePost?.webTitle}}</h1>
+  <a href="{{singlePost?.webUrl}}">Web Url</a>
+</div>

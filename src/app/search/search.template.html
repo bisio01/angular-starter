@@ -1,0 +1,48 @@
+<div class="flex-wrapper">
+  <aside class="aside">
+    <form [formGroup]="searchForm" (ngSubmit)="onSubmit(form)">
+      <div class="field">
+        <label>Title</label>
+        <input formControlName="q" type="search">
+      </div>
+      <div class="field">
+        <label>Section</label>
+        <input formControlName="section" type="text">
+      </div>
+      <div class="field">
+        <label>Tag</label>
+        <input formControlName="tag" type="text">
+      </div>
+      <div class="field">
+        <label>From</label>
+        <input formControlName="fromDate" type="date">
+        <label>To</label>
+        <input formControlName="toDate" type="date">
+      </div>
+      <div class="field">
+        <label>order-by</label>
+        <select formControlName="orderBy">
+          <option>oldest</option>
+          <option>newest</option>
+          <option>relevance</option>
+          <option>none</option>
+        </select>
+      </div>
+      <div class="field">
+        <button type="submit">search</button>
+      </div>
+    </form>
+
+  </aside>
+  <div class="container-result">
+    <div class="list-wrapper">
+      <div class="list-item" *ngFor="let post of result?.results">
+        <span>{{post.sectionName}}</span>
+        <span>{{post.pillarName}}</span>
+        <h3> {{post.webTitle}}</h3>
+        <button type="button" (click)="openView(post.id)" >More...</button>
+      </div>
+    </div>
+  </div>
+
+</div>

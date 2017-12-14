@@ -1,0 +1,19 @@
+<i class="close" (click)="closeModal()" >X</i>
+<form *ngIf="!isSubmit" [formGroup]="contactForm" (ngSubmit)="onSubmit(form)">
+  <div class="field">
+    <label>Your name</label>
+    <input type="text" formControlName="name">
+  </div>
+  <div class="field">
+    <label>Your Email</label>
+    <input type="email" formControlName="email">
+  </div>
+  <div class="field">
+    <label>Message</label>
+    <textarea formControlName="message"></textarea>
+  </div>
+  <button type="submit">Send</button>
+</form>
+<div *ngIf="isSubmit">
+  <h1>Thank You!</h1>
+</div>
